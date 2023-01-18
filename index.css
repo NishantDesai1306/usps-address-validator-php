@@ -1,0 +1,8 @@
+body {
+  background: #e6e6e6;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
