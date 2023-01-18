@@ -28,13 +28,13 @@ Zip: 94556
 
 ## Screenshots
 Home page
-![address-form](https://raw.githubusercontent.com/NishantDesai1306/usps-address-validator-php/images/home.png)
+![address-form](https://raw.githubusercontent.com/NishantDesai1306/usps-address-validator-php/main/images/home.png)
 
 Verify page
-![verify-page](https://raw.githubusercontent.com/NishantDesai1306/usps-address-validator-php/images/verify.png)
+![verify-page](https://raw.githubusercontent.com/NishantDesai1306/usps-address-validator-php/main/images/verify.png)
 
 Saved page
-![saved](https://raw.githubusercontent.com/NishantDesai1306/usps-address-validator-php/images/saved.png)
+![saved](https://raw.githubusercontent.com/NishantDesai1306/usps-address-validator-php/main/images/saved.png)
 
 Validate record insertion in database
-![database-client](https://raw.githubusercontent.com/NishantDesai1306/usps-address-validator-php/images/dbeaver.png)
+![database-client](https://raw.githubusercontent.com/NishantDesai1306/usps-address-validator-php/main/images/dbeaver.png)
