@@ -1,6 +1,7 @@
 <?php
-require '../helper/database.php';
-require '../helper/index.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/helper/exception-handler.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/helper/database.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/helper/index.php';
 
 $addressLine1 = sanitize($_POST['addressLine1']);
 $addressLine2 = sanitize($_POST['addressLine2']);

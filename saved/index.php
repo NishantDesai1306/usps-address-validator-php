@@ -21,10 +21,8 @@
     <div class="col-8 offset-2 col-sm-4 offset-sm-4 d-flex align-items-center">
       <div class="w-100 card">
         <div class="card-body">
-          <div class="text-center text-success">
-            <h6 class="mb-0">Address Saved Successfully</h6>
-          </div>
-
+          <div class="card-title h5 mb-4 text-center text-success">Address Saved Successfully</div>
+          
           <div class="text-center mt-4">
             <a class="btn btn-primary" href="/">Verify another address</a>
           </div>

@@ -26,8 +26,8 @@
     <div class="col-8 offset-2 col-sm-4 offset-sm-4 d-flex align-items-center">
       <div class="w-100 card">
         <div class="card-body">
-          <div class="card-title h5">Address Validator</div>
-          <div class="mb-2 text-muted card-subtitle h6">Validate/Standardizes addresses using USPS</div>
+          <div class="card-title text-center h5">Address Validator</div>
+          <div class="mb-2 text-muted text-center card-subtitle h6">Validate/Standardizes addresses using USPS</div>
           <hr>
           <div class="mt-4">
             <form class="w-100" name="addressForm" action="/verify" onsubmit="return validation()" method="POST">

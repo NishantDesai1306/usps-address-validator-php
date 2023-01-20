@@ -1,5 +1,5 @@
 <?php
-require '../helper/index.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/helper/index.php';
 
 $addressLine1 = sanitize($_POST['addressLine1']);
 $addressLine2 = sanitize($_POST['addressLine2']);
@@ -45,8 +45,8 @@ if ($xml === false) {
   }
 } else {
   $err = (string) $xml->Address->Error->Description;
-  $standardizedAddressLine1 = (string) $xml->Address->Address1;
-  $standardizedAddressLine2 = (string) $xml->Address->Address2;
+  $standardizedAddressLine1 = (string) $xml->Address->Address2;
+  $standardizedAddressLine2 = (string) $xml->Address->Address1;
   $standardizedCity = (string) $xml->Address->City;
   $standardizedState = (string) $xml->Address->State;
   $standardizedZip5 = (string) $xml->Address->Zip5;
@@ -75,41 +75,58 @@ if ($xml === false) {
     <div class="col-8 offset-2 col-sm-4 offset-sm-4 d-flex align-items-center">
       <div class="w-100 card">
         <div class="card-body">
+          <div class="card-title text-center h5 mb-4">Save Address</div>
+
+          <div class="row mb-3">
+            <div class="col-12 d-flex justify-content-center">
+              <div class="btn-group" role="group">
+                <input type="radio" class="btn-check" name="address-selection" id="original" value="ORIGINAL" autocomplete="off">
+                <label class="btn btn-light" for="original">Original</label>
+                
+                <input type="radio" class="btn-check" name="address-selection" id="standardized" value="STANDARDIZED" autocomplete="off" checked>
+                <label class="btn btn-primary" for="standardized">Standardized</label>
+              </div>
+            </div>
+          </div> 
           <div class="row">
             <div class="col-12 col-sm-6 mb-3 mb-sm-0 p-2">
-              <div class="border p-2 rounded">
+              <div class="border p-2 rounded" id="address-section-ORIGINAL">
                 <div class="fw-bold mb-3">Original Address</div>
 
-                <div>Address Line 1: <?= $addressLine1 ?></div>
-                <div>Address Line 2: <?= $addressLine2 ?></div>
-                <div>City: <?= $city ?></div>
-                <div>State: <?= $state ?></div>
-                <div>Zip: <?= $zip ?></div>
-
-                <div class="d-flex justify-content-center my-2">
-                  <button class="btn btn-primary" onclick="saveAddress('<?= $addressLine1 ?>', '<?= $addressLine2 ?>', '<?= $city ?>', '<?= $state ?>', '<?= $zip ?>')">
-                    Save
-                  </button>
-                </div>
+                <div>Address Line 1: <label name="addressLine1"><?= $addressLine1 ?></label></div>
+                <div>Address Line 2: <label name="addressLine2"><?= $addressLine2 ?></label></div>
+                <div>City: <label name="city"><?= $city ?></label></div>
+                <div>State: <label name="state"><?= $state ?></label></div>
+                <div>Zip: <label name="zip"><?= $zip ?></label></div>
               </div>
             </div>
 
             <div class="col-12 col-sm-6 mb-3 mb-sm-0 p-2">
-              <div class="border p-2 rounded">
+              <div class="border p-2 rounded" id="address-section-STANDARDIZED">
                 <div class="fw-bold mb-3">Standardized Address</div>
   
-                <div>Address Line 1: <?= $standardizedAddressLine1 ?></div>
-                <div>Address Line 2: <?= $standardizedAddressLine2 ?></div>
-                <div>City: <?= $standardizedCity ?></div>
-                <div>State: <?= $standardizedState ?></div>
-                <div>Zip: <?= $standardizedZip5 ?></div>
-  
-                <div class="d-flex justify-content-center my-2">
-                  <button class="btn btn-primary" onclick="saveAddress('<?= $standardizedAddressLine1 ?>', '<?= $standardizedAddressLine2 ?>', '<?= $standardizedCity ?>', '<?= $standardizedState ?>', '<?= $standardizedZip5 ?>')">
-                    Save
-                  </button>
-                </div>
+                <div>Address Line 1: <label name="addressLine1"><?= $standardizedAddressLine1 ?></label></div>
+                <div>Address Line 2: <label name="addressLine2"><?= $standardizedAddressLine2 ?></label></div>
+                <div>City: <label name="city"><?= $standardizedCity ?></label></div>
+                <div>State: <label name="state"><?= $standardizedState ?></label></div>
+                <div>Zip: <label name="zip"><?= $standardizedZip5 ?></label></div>
               </div>
+            </div>
+          </div>
+
+          <div class="row mt-3 d-none" id="error">
+            <div class="col-12">
+              <div class="alert text-center alert-danger">
+                Something went wrong.
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-12 text-center">
+              <button class="btn btn-lg btn-primary" onclick="saveSelectedAddress()">
+                Save
+              </button>
             </div>
           </div>
         </div>
